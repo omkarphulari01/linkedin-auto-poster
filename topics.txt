@@ -1,0 +1,15 @@
+# One topic per line. Blank lines and lines starting with # are ignored.
+# The script rotates through these in order, and loops back to the top
+# once it reaches the end. Edit this file any time -- changes are picked
+# up automatically on the next scheduled run.
+
+The importance of consistency in career growth
+A lesson learned from a recent project failure
+Why soft skills matter as much as technical skills
+Tips for staying productive while working remotely
+How to network authentically without feeling salesy
+The value of asking for feedback regularly
+A book or article that changed how I think about work
+Common mistakes early-career professionals make
+How to handle burnout before it becomes a crisis
+The future of AI in everyday workflows

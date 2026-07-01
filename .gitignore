@@ -1,0 +1,13 @@
+# Secrets - never commit
+.env
+
+# Auto-generated at runtime
+state.json
+poster.log
+cron.log
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
