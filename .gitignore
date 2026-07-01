@@ -2,7 +2,8 @@
 .env
 
 # Auto-generated at runtime
-state.json
+# NOTE: state.json is intentionally NOT ignored -- it must be committed so
+# GitHub Actions remembers which topic is next between daily runs.
 poster.log
 cron.log
 

@@ -52,7 +52,33 @@ You need something to run continuously (or on a recurring trigger) since
 LinkedIn's API has no built-in "schedule for later" feature — the timing
 logic lives entirely in this script.
 
-**Option A — keep the script running as a background process (simplest)**
+**Option 0 — GitHub Actions (recommended: free, no server to manage)**
+
+This repo already includes `.github/workflows/daily-post.yml`, which runs
+`python main.py --now` on a daily schedule using GitHub's free compute —
+you don't need to host anything yourself.
+
+1. Push this repo to GitHub (see main chat for upload steps).
+2. In your repo: **Settings → Secrets and variables → Actions → New repository secret**.
+   Add these 4 secrets (same values as your `.env` file):
+   - `ANTHROPIC_API_KEY`
+   - `LINKEDIN_ACCESS_TOKEN`
+   - `LINKEDIN_AUTHOR_URN`
+   - `LINKEDIN_API_VERSION`
+3. In `.github/workflows/daily-post.yml`, adjust the `cron` line to your
+   desired posting time — cron times are in **UTC**, so convert from your
+   local time (e.g. IST is UTC+5:30 → 9:00 AM IST = `30 3 * * *`).
+4. Test it immediately: go to the **Actions** tab → "Daily LinkedIn Post" →
+   **Run workflow** button. Check the run log, then check LinkedIn.
+5. Once confirmed working, it will run automatically every day at the
+   scheduled UTC time — no server, no `.env` file needed on GitHub (secrets
+   replace it), nothing left running on your machine.
+
+Note: GitHub disables scheduled workflows automatically after ~60 days
+of repo inactivity. If posts stop, open the Actions tab and re-enable it
+(one click) — this is a GitHub limitation, not a bug in the script.
+
+**Option A — keep the script running as a background process on your own machine/server**
 
 ```bash
 nohup python main.py > /dev/null 2>&1 &
